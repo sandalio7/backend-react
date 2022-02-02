@@ -8,5 +8,12 @@ productoCtrl.borrarProducto = (req,res)=>{
     res.send('borrar producto')
 }
 
+productoCtrl.crearProducto = (req,res)=>{
+    res.send('crear producto')
+}
+
+
+
+
 
 export default productoCtrl
