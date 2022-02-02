@@ -1,6 +1,7 @@
 import express from 'express';
 import morgan from 'morgan';
 import cors from 'cors';
+import path from 'path'
 
 //creo una instancia de express
 const app = express();
@@ -19,6 +20,11 @@ app.use(cors()); //permite recibir peticiones remotas
 // permite recibir objetos en formato .json e interpretarlos
 app.use(express.json());
 app.use(express.urlencoded({extend:true}));
+//mostrar una pagina por defecto
+console.log(path.join(__dirname,'../public'))
+app.use(express.static(path.join(__dirname,'../public')))
+
+
 
 // de esta forma el servidor queda escuchando y no me devuelve el control de la terminal
 
