@@ -2,6 +2,7 @@ import express from 'express';
 import morgan from 'morgan';
 import cors from 'cors';
 import path from 'path'
+import router from './routes/producto.routes'
 
 //creo una instancia de express
 const app = express();
@@ -32,9 +33,4 @@ console.log('prueba')
 // aqui entra nodemon que se encarga de recargar la pagina para actualizar cada vez que hago cambios en el codigo y mostrarlos en tiempo real
 
 //crear rutas req = request (petision) y res = response (respuesta)
-app.get('/', (req,res)=>{
-    res.send('hola desde el backend')
-})
-app.delete('/borrardatos', (req,res)=>{
-    res.send('borro los datos')
-})
+app.use('/apicrud', router )
