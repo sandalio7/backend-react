@@ -10,7 +10,6 @@ productoCtrl.borrarProducto = (req,res)=>{
 
 productoCtrl.crearProducto = (req,res)=>{
     res.send('crear producto')
-    console.log(req)
     console.log(req.body)
 }
 
