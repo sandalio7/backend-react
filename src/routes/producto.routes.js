@@ -15,5 +15,7 @@ router
   .route("/:id")
   .get(productoCtrl.obtenerProducto)
   .delete(productoCtrl.borrarProducto)
+  .put(productoCtrl.editarProducto)
+  
 
 export default router;

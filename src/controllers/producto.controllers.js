@@ -66,6 +66,17 @@ productoCtrl.crearProducto = async(req,res)=>{
         }
     }
 
+    productoCtrl.editarProducto = async(req,res)=>{
+        try {
+            //recibir el id del producto que se quiere editar y modificarlo con los datos que llegan en el body
+            await Producto.findByIdAndUpdate(req.params.id,req.body)
+            //enviar una respuesta
+            res.status(200).json({mensaje:'el producto se pudo editar correctamente'})
+        } catch (error) {
+            console.log(error)
+            res.status(400).json({mensaje:'no se pudo editar el producto seleccionado'})
+        }
+    }
 
 
 
