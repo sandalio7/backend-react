@@ -17,8 +17,17 @@ productoCtrl.listarProductos = async(req,res)=>{
 
 
 
-productoCtrl.borrarProducto = (req,res)=>{
-    res.send('borrar producto')
+productoCtrl.borrarProducto = async(req,res)=>{
+    try{
+        //buscar el producto mediante el id y borrarlo cuando le encuentre
+        const borrarProducto = await Producto.findByIdAndDelete(req.params.id)
+        //devolver una respuesta al front
+        res.status(200).json({mensaje:'se pudo eliminar el producto solicitado'})
+    }catch(error){
+        console.log(error)
+        //caso contrario envio una respuesta negativa 
+        res.status(400).json({mensaje:'no se pudo borrar el producto'})
+    }
 }
 
 productoCtrl.crearProducto = async(req,res)=>{
