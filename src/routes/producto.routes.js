@@ -10,4 +10,8 @@ router
   .get(productoCtrl.listarProductos)
   .post(productoCtrl.crearProducto);
 
+  router
+  .route("/prueba")
+  .get(productoCtrl.devolverID)
+
 export default router;

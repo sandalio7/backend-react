@@ -1,10 +1,21 @@
 import Producto from "../models/producto"
-
+const ID = {}
 const productoCtrl = {}
+
+
 //logica para obtener lista de productos
-productoCtrl.listarProductos = (req,res)=>{
-    res.send('listar productos')
+productoCtrl.listarProductos = async(req,res)=>{
+    try{
+        //devolver al frontend una lista con un arreglo con  todos los productos que estan en la BD
+        const listaProductos = await Producto.find()
+        res.status(200).json(listaProductos)
+    }catch(error){
+        console.log(error)
+        res.status(404).json({mensaje:'no se pudo obtener el listado '})
+    }
 }
+
+
 
 productoCtrl.borrarProducto = (req,res)=>{
     res.send('borrar producto')
@@ -31,6 +42,7 @@ productoCtrl.crearProducto = async(req,res)=>{
             res.status(400).json({mensaje:'Error al agregar el producto'})
     }
 }
+
 
 
 
