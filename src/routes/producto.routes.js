@@ -11,7 +11,8 @@ router
   .post(productoCtrl.crearProducto);
 
   router
-  .route("/prueba")
-  .get(productoCtrl.devolverID)
+  //el /:id es un parametro , :id representa la req del front con el parametro que nos pasaran que vendria a ser el codigo id
+  .route("/:id")
+  .get(productoCtrl.obtenerProducto)
 
 export default router;
